@@ -1,0 +1,89 @@
+<div class="limiter animate__animated animate__fadeInLeft">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                <form class="login100-form validate-form flex-sb flex-w" 
+                #form="ngForm"
+                (submit)="onSubmit(form)" 
+                >
+    
+                    <span class="login100-form-title p-b-51">
+                        CREATE NEW ACCOUNT
+                    </span>
+    
+                    <span class="text-danger animate__animated animate__fadeIn" 
+                        *ngIf="form.submitted && form.controls['email'].errors"
+                    >
+                        Email is required
+                    </span>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" 
+                               type="email" 
+                               name="email" 
+                               [(ngModel)]="user.email"
+                               required
+                               placeholder="Email">
+    
+                        <span class="focus-input100"></span>
+                    </div>
+                    
+                    <span class="text-danger animate__animated animate__fadeIn" 
+                        *ngIf="form.submitted && form.controls['username'].errors"
+                    >
+                        Username is required
+                    </span>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" 
+                               type="text" 
+                               name="username" 
+                               [(ngModel)]="user.username"
+                               required
+                               placeholder="name and lastname">
+    
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <span class="text-danger animate__animated animate__fadeIn" 
+                    *ngIf="form.submitted && form.controls['password'].errors"
+                    >
+                        Password minimun length 6 letters
+                    </span>
+                    <div class="wrap-input100 m-b-16" data-validate = "Password is required">
+                        <input class="input100"
+                               type="password" 
+                               name="password" 
+                               [(ngModel)]="user.password"
+                               minlength="6"
+                               required
+                               placeholder="Password">
+                        <span class="focus-input100"></span>
+                    </div>
+                    
+                    <div class="flex-sb-m w-full p-t-3 p-b-24">
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember" [(ngModel)]="rememberMe">
+                            <label class="label-checkbox100" for="ckb1">
+                                <fa-icon [icon]="['fas', 'check-square']" *ngIf="rememberMe"></fa-icon>
+                                <fa-icon [icon]="['fas', 'square']" *ngIf="!rememberMe"></fa-icon>
+                                Remember user
+                            </label>
+                        </div>
+    
+                        <div>
+                            <a routerLink="/login" class="txt1">
+                                Already user ? / Login
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" type="submit">
+                            Create account
+                        </button>
+                    </div>
+    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    

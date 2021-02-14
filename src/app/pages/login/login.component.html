@@ -1,0 +1,71 @@
+<div class="limiter animate__animated animate__fadeInRight">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form class="login100-form validate-form flex-sb flex-w"
+            #form="ngForm"
+            (submit)="onSubmit(form)" 
+            (change)="onChange(form)"
+            >
+
+                <span class="login100-form-title p-b-51">
+                    Login
+                </span>
+
+                <span class="text-danger animate__animated animate__fadeIn" 
+                    *ngIf="form.submitted && form.controls['email'].errors"
+                >
+                Username is required
+                </span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" 
+                        required
+                        type="email" 
+                        name="email"
+                        [(ngModel)]="user.email"
+                        placeholder="email">
+                    <span class="focus-input100"></span>
+                </div>
+                
+                <span class="text-danger animate__animated animate__fadeIn" 
+                    *ngIf="form.submitted && form.controls['password'].errors"
+                >
+                Password is required
+                </span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100"
+                           type="password" 
+                           name="password"
+                           required
+                           [(ngModel)]="user.password"
+                           placeholder="Password">
+                    <span class="focus-input100"></span>
+                </div>
+                
+                <div class="flex-sb-m w-full p-t-3 p-b-24">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember" [(ngModel)]="rememberMe">
+                        <label class="label-checkbox100" for="ckb1">
+                            <fa-icon [icon]="['fas', 'check-square']" *ngIf="rememberMe"></fa-icon>
+                            <fa-icon [icon]="['fas', 'square']" *ngIf="!rememberMe"></fa-icon>
+                            Remember user
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <a routerLink="/register" class="txt1">
+                            Don't have an account?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" type="submit">
+                        Login
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
